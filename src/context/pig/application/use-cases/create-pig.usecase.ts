@@ -334,7 +334,7 @@ export class CreatePigUseCase {
                   farm: newPig.farm,
                   breed: pigletBreed!,
                   phase: phasePiglet!,
-                  earTag: `${newPig.earTag}-${crypto.randomUUID().slice(0, 6)}`,
+                  earTag: `${newPig.earTag}-${new Date().toISOString()}-${crypto.randomUUID().slice(0, 4)}`,
                   birthDate: new Date(),
                   initialPrice: setting.initialPigletPrice,
                   type: PigType.Production,
