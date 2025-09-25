@@ -330,11 +330,12 @@ export class CreatePigUseCase {
 
             pigletsConfig.forEach(({ count, sex }) => {
               for (let i = 0; i < count; i++) {
+                const dateOnly = new Date().toISOString().split('T')[0];
                 const piglet = Pig.create({
                   farm: newPig.farm,
                   breed: pigletBreed!,
                   phase: phasePiglet!,
-                  earTag: `${newPig.earTag}-${new Date().toISOString()}-${crypto.randomUUID().slice(0, 4)}`,
+                  earTag: `${newPig.earTag}-${dateOnly}-${crypto.randomUUID().slice(0, 4)}`,
                   birthDate: new Date(),
                   initialPrice: setting.initialPigletPrice,
                   type: PigType.Production,
